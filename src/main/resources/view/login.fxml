@@ -8,29 +8,34 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
-  <columnConstraints>
-    <ColumnConstraints />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-      <RowConstraints maxHeight="60.0" minHeight="6.0" prefHeight="55.0" />
-    <RowConstraints maxHeight="240.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="240.0" minHeight="10.0" prefHeight="110.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES" />
-  </rowConstraints>
-   <children>
-      <Button mnemonicParsing="false" text="Начать играть" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </Button>
-      <TextField prefHeight="0.0" prefWidth="400.0" promptText="Логин" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-         <GridPane.margin>
-            <Insets left="60.0" right="60.0" />
-         </GridPane.margin>
-      </TextField>
-      <Label text="ПОЧТИ КРЕСТИКИ-НОЛИКИ" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-   </children>
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+          prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1"
+          xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tictactoe.controller.LoginController">
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="60.0" minHeight="6.0" prefHeight="55.0"/>
+        <RowConstraints maxHeight="240.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="240.0" minHeight="10.0" prefHeight="110.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <Button mnemonicParsing="false" text="Начать играть" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                GridPane.rowIndex="3" GridPane.valignment="CENTER" onAction="#onStartGameClicked" id="btnStart">
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+        </Button>
+        <TextField prefHeight="0.0" prefWidth="400.0" promptText="Логин" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                   GridPane.valignment="CENTER" fx:id="etLogin">
+            <GridPane.margin>
+                <Insets left="60.0" right="60.0"/>
+            </GridPane.margin>
+        </TextField>
+        <Label text="ПОЧТИ КРЕСТИКИ-НОЛИКИ" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+               GridPane.rowIndex="1"/>
+    </children>
 </GridPane>
