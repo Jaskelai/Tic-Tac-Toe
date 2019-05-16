@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.io.File;
 
@@ -22,29 +23,27 @@ public class PaintController {
     private ColorPicker colorPicker;
 
     public void initialize() {
-        GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-
-        graphicsContext.setFill(colorPicker.getValue());
-
+        GraphicsContext g = canvas.getGraphicsContext2D();
         canvas.setOnMousePressed(event ->{
-            graphicsContext.beginPath();
-            graphicsContext.moveTo(event.getX(), event.getY());
-            graphicsContext.stroke();
+            g.beginPath();
+            g.moveTo(event.getX(), event.getY());
+            g.stroke();
         });
 
         canvas.setOnMouseDragged(event -> {
-            graphicsContext.lineTo(event.getX(), event.getY());
-            graphicsContext.stroke();
-            graphicsContext.closePath();
-            graphicsContext.beginPath();
-            graphicsContext.moveTo(event.getX(), event.getY());
-
+            g.setStroke(colorPicker.getValue());
+            g.setLineWidth(4);
+            g.lineTo(event.getX(), event.getY());
+            g.stroke();
+            g.closePath();
+            g.beginPath();
+            g.moveTo(event.getX(), event.getY());
         });
 
         canvas.setOnMouseReleased(event -> {
-            graphicsContext.lineTo(event.getX(), event.getY());
-            graphicsContext.stroke();
-            graphicsContext.closePath();
+            g.lineTo(event.getX(), event.getY());
+            g.stroke();
+            g.closePath();
         });
     }
 
