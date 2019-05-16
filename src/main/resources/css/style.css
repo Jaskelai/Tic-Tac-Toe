@@ -1,0 +1,16 @@
+.background {
+    -fx-background-color: #008dab;
+}
+
+.label {
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 17pt;
+}
+
+.label-start {
+    -fx-font-family: "Segoe UI Light";
+}
+
+.canvas {
+    -fx-background-color: #ffffff;
+}
