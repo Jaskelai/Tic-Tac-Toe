@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,9 +95,12 @@ public class GameController extends AbstractController implements OnGameCallback
                 byte[] a = playerRepository.getPlayer().getImage();
                 Image image = new Image(new ByteArrayInputStream(a));
                 ImageView imageView = new ImageView(image);
-                imageView.setFitHeight(30);
-                imageView.setFitWidth(30);
-                gridPaneGame.add(new ImageView(image), column, row);
+                imageView.setFitHeight(60);
+                imageView.setFitWidth(60);
+                StackPane stackPane = new StackPane();
+                stackPane.setPrefSize(60.0, 60.0);
+                stackPane.getChildren().add(imageView);
+                gridPaneGame.add(stackPane, column-1, row-1);
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put(Headers.MESSAGE_TYPE.name(), MessageType.TURN.name());
                 jsonObject.put(Headers.ROW.name(),row);
@@ -113,9 +117,12 @@ public class GameController extends AbstractController implements OnGameCallback
             byte[] a = playerRepository.getOpponentPlayer().getImage();
             Image image = new Image(new ByteArrayInputStream(a));
             ImageView imageView = new ImageView(image);
-            imageView.setFitHeight(30);
-            imageView.setFitWidth(30);
-            gridPaneGame.add(new ImageView(image), column, row);
+            imageView.setFitHeight(60);
+            imageView.setFitWidth(60);
+            StackPane stackPane = new StackPane();
+            stackPane.setPrefSize(60.0, 60.0);
+            stackPane.getChildren().add(imageView);
+            gridPaneGame.add(stackPane, column-1, row-1);
         });
     }
 

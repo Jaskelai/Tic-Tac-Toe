@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,9 @@ import tictactoe.client.data.OnStartCallback;
 import tictactoe.client.data.PlayerRepository;
 import tictactoe.entity.Player;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 @Component
@@ -35,11 +37,14 @@ public class WaitController extends AbstractController implements OnStartCallbac
     @FXML
     private Label labelZhdi;
 
-    public void initialize() throws InterruptedException {
+    @FXML
+    private ImageView waitGif;
+
+    public void initialize() throws InterruptedException, FileNotFoundException {
         myWebSocketClient.connect();
-//        File file = new File("wait3.gif");
-//        Image image = new Image(new FileInputStream(file));
-//        wait.setImage(image);
+        File file = new File("E:\\dev\\java\\kn\\Tic-Tac-Toe\\src\\main\\resources\\img\\wait3.gif");
+        Image image = new Image(new FileInputStream(file));
+        waitGif.setImage(image);
     }
 
     @Override
