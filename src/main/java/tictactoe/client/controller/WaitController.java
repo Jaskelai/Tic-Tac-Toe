@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import tictactoe.entity.Headers;
 import tictactoe.entity.MessageType;

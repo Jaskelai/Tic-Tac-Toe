@@ -44,7 +44,7 @@ public class MyWebSocketClient extends WebSocketClient {
     public void onMessage(String message) {
         JSONObject object = new JSONObject(message);
         String type = (String) object.get(Headers.MESSAGE_TYPE.name());
-        if (MessageType.valueOf(type) == (MessageType.INIT_MESSAGE)) {
+        if (MessageType.valueOf(type).equals(MessageType.INIT_MESSAGE)) {
             String username = (String) object.get(Headers.USERNAME.name());
             String encodedImage = (String) object.get(Headers.IMAGE.name());
             byte[] image = java.util.Base64.getDecoder().decode(encodedImage);
@@ -54,6 +54,11 @@ public class MyWebSocketClient extends WebSocketClient {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else if (MessageType.valueOf(type).equals(MessageType.TURN)) {
+            System.out.println("TURN");
+            int column = (int) object.get(Headers.COLUMN.name());
+            int row = (int) object.get(Headers.ROW.name());
+            onGameCallback.getOpponentTurn(column, row);
         }
     }
 

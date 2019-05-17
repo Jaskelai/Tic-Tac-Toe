@@ -19,7 +19,7 @@
     </rowConstraints>
     <children>
         <Label text="Ход соперника/твой ход" textFill="WHITE" GridPane.halignment="CENTER"/>
-        <GridPane gridLinesVisible="true" stylesheets="@../css/style.css" GridPane.rowIndex="1">
+        <GridPane gridLinesVisible="true" stylesheets="@../css/style.css" GridPane.rowIndex="1" fx:id="gridPaneGame">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
