@@ -94,13 +94,7 @@ public class GameController extends AbstractController implements OnGameCallback
                 }
                 byte[] a = playerRepository.getPlayer().getImage();
                 Image image = new Image(new ByteArrayInputStream(a));
-                ImageView imageView = new ImageView(image);
-                imageView.setFitHeight(60);
-                imageView.setFitWidth(60);
-                StackPane stackPane = new StackPane();
-                stackPane.setPrefSize(60.0, 60.0);
-                stackPane.getChildren().add(imageView);
-                gridPaneGame.add(stackPane, column-1, row-1);
+                gridPaneGame.add(addImage(image), column-1, row-1);
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put(Headers.MESSAGE_TYPE.name(), MessageType.TURN.name());
                 jsonObject.put(Headers.ROW.name(),row);
@@ -116,13 +110,7 @@ public class GameController extends AbstractController implements OnGameCallback
         Platform.runLater(() -> {
             byte[] a = playerRepository.getOpponentPlayer().getImage();
             Image image = new Image(new ByteArrayInputStream(a));
-            ImageView imageView = new ImageView(image);
-            imageView.setFitHeight(60);
-            imageView.setFitWidth(60);
-            StackPane stackPane = new StackPane();
-            stackPane.setPrefSize(60.0, 60.0);
-            stackPane.getChildren().add(imageView);
-            gridPaneGame.add(stackPane, column-1, row-1);
+            gridPaneGame.add(addImage(image), column-1, row-1);
         });
     }
 
@@ -145,5 +133,15 @@ public class GameController extends AbstractController implements OnGameCallback
             }
             stage.setScene(new Scene(endScene));
         });
+    }
+
+    private StackPane addImage(Image image){
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(60);
+        imageView.setFitWidth(60);
+        StackPane stackPane = new StackPane();
+        stackPane.setPrefSize(60.0, 60.0);
+        stackPane.getChildren().add(imageView);
+        return stackPane;
     }
 }
