@@ -105,7 +105,10 @@ public class TicTacToeServer extends WebSocketServer {
             conns.get(player1).send(response.toString());
             conns.get(player2).send(response.toString());
         } else {
-
+            response.put(Headers.RESULT.name(), true);
+            conns.get(player1).send(response.toString());
+            response.put(Headers.RESULT.name(), false);
+            conns.get(player2).send(response.toString());
         }
     }
 

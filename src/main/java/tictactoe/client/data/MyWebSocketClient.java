@@ -48,17 +48,20 @@ public class MyWebSocketClient extends WebSocketClient {
             String username = (String) object.get(Headers.USERNAME.name());
             String encodedImage = (String) object.get(Headers.IMAGE.name());
             byte[] image = java.util.Base64.getDecoder().decode(encodedImage);
-            Player opponent = new Player(username,image);
+            Player opponent = new Player(username, image);
             try {
                 onStartCallback.onOpponentFound(opponent);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else if (MessageType.valueOf(type).equals(MessageType.TURN)) {
-            System.out.println("TURN");
             int column = (int) object.get(Headers.COLUMN.name());
             int row = (int) object.get(Headers.ROW.name());
             onGameCallback.getOpponentTurn(column, row);
+            Object result = object.get(Headers.RESULT.name());
+            if (result != null) {
+                onGameCallback.setResult((String) result);
+            }
         }
     }
 

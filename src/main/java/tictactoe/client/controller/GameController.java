@@ -3,14 +3,17 @@ package tictactoe.client.controller;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -23,6 +26,7 @@ import tictactoe.entity.Headers;
 import tictactoe.entity.MessageType;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -106,13 +110,33 @@ public class GameController extends AbstractController implements OnGameCallback
     @Override
     public void getOpponentTurn(int column, int row) {
         Platform.runLater(() -> {
-            System.out.println(column);
             byte[] a = playerRepository.getOpponentPlayer().getImage();
             Image image = new Image(new ByteArrayInputStream(a));
             ImageView imageView = new ImageView(image);
             imageView.setFitHeight(30);
             imageView.setFitWidth(30);
             gridPaneGame.add(new ImageView(image), column, row);
+        });
+    }
+
+    @Override
+    public void setResult(String result) {
+        Platform.runLater(() -> {
+            if (result.equals("true")) {
+                playerRepository.setResult(true);
+            } else {
+                playerRepository.setResult(false);
+            }
+            Stage stage = (Stage) gridPane.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/end.fxml"));
+            loader.setControllerFactory(getContext()::getBean);
+            Parent endScene = null;
+            try {
+                endScene = loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage.setScene(new Scene(endScene));
         });
     }
 }
