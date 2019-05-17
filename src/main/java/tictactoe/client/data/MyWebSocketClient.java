@@ -57,7 +57,10 @@ public class MyWebSocketClient extends WebSocketClient {
         } else if (MessageType.valueOf(type).equals(MessageType.TURN)) {
             int column = (int) object.get(Headers.COLUMN.name());
             int row = (int) object.get(Headers.ROW.name());
-            onGameCallback.getOpponentTurn(column, row);
+            Object isMy = object.get(Headers.ISMY.name());
+            boolean isMyTurn;
+            isMyTurn = isMy.equals("true");
+            onGameCallback.getOpponentTurn(column, row, isMyTurn);
             Object result = object.get(Headers.RESULT.name());
             if (result != null) {
                 onGameCallback.setResult((String) result);

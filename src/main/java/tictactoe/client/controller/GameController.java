@@ -108,9 +108,16 @@ public class GameController extends AbstractController implements OnGameCallback
     }
 
     @Override
-    public void getOpponentTurn(int column, int row) {
+    public void getOpponentTurn(int column, int row, boolean isMyTurn) {
         Platform.runLater(() -> {
-            byte[] a = playerRepository.getOpponentPlayer().getImage();
+            System.out.println("turn");
+            System.out.println(isMyTurn);
+            byte[] a;
+            if (isMyTurn) {
+                a = playerRepository.getPlayer().getImage();
+            } else {
+                a = playerRepository.getOpponentPlayer().getImage();
+            }
             Image image = new Image(new ByteArrayInputStream(a));
             ImageView imageView = new ImageView(image);
             imageView.setFitHeight(30);
@@ -122,6 +129,7 @@ public class GameController extends AbstractController implements OnGameCallback
     @Override
     public void setResult(String result) {
         Platform.runLater(() -> {
+            System.out.println("RESULT");
             if (result.equals("true")) {
                 playerRepository.setResult(true);
             } else {

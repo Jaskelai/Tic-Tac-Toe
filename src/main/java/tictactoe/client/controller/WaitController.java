@@ -35,7 +35,7 @@ public class WaitController extends AbstractController implements OnStartCallbac
     @FXML
     private Label labelZhdi;
 
-    public void initialize() throws InterruptedException {
+    public void initialize() {
         myWebSocketClient.connect();
 //        File file = new File("wait3.gif");
 //        Image image = new Image(new FileInputStream(file));
