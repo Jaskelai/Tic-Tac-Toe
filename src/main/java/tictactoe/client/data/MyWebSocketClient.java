@@ -60,6 +60,7 @@ public class MyWebSocketClient extends WebSocketClient {
             onGameCallback.getOpponentTurn(column, row);
             Object result = object.get(Headers.RESULT.name());
             if (result != null) {
+                System.out.println(result.toString());
                 onGameCallback.setResult((String) result);
             }
         }

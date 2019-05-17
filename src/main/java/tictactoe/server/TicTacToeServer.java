@@ -22,6 +22,7 @@ public class TicTacToeServer extends WebSocketServer {
     private static Player player2;
     private Map<Player, WebSocket> conns;
     private List<Pair<Integer, Integer>> pairs;
+    private boolean flag = true;
 
     private boolean isGameOver = false;
 
@@ -101,13 +102,13 @@ public class TicTacToeServer extends WebSocketServer {
         response.put(Headers.COLUMN.name(), column);
         processGame(column, row);
         if (!isGameOver) {
-            System.out.println("NE ZACONCHENA");
             conns.get(player1).send(response.toString());
             conns.get(player2).send(response.toString());
         } else {
-            response.put(Headers.RESULT.name(), true);
+            response.put(Headers.RESULT.name(), flag);
             conns.get(player1).send(response.toString());
-            response.put(Headers.RESULT.name(), false);
+            flag = !flag;
+            response.put(Headers.RESULT.name(), flag);
             conns.get(player2).send(response.toString());
         }
     }

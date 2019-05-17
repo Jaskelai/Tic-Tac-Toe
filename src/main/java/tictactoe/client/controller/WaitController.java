@@ -42,9 +42,9 @@ public class WaitController extends AbstractController implements OnStartCallbac
 
     public void initialize() throws InterruptedException, FileNotFoundException {
         myWebSocketClient.connect();
-        File file = new File("E:\\dev\\java\\kn\\Tic-Tac-Toe\\src\\main\\resources\\img\\wait3.gif");
-        Image image = new Image(new FileInputStream(file));
-        waitGif.setImage(image);
+//        File file = new File("E:\\dev\\java\\kn\\Tic-Tac-Toe\\src\\main\\resources\\img\\wait3.gif");
+//        Image image = new Image(new FileInputStream(file));
+//        waitGif.setImage(image);
     }
 
     @Override
