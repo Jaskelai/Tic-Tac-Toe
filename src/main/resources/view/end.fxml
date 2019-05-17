@@ -9,18 +9,19 @@
 <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
           prefHeight="400.0" prefWidth="400.0" styleClass="background" stylesheets="@../css/style.css"
           xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="tictactoe.controller.EndController">
-   <columnConstraints>
-      <ColumnConstraints/>
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints maxHeight="148.0" minHeight="6.0" prefHeight="84.0"/>
-      <RowConstraints maxHeight="240.0" minHeight="10.0" prefHeight="118.0" vgrow="SOMETIMES"/>
-      <RowConstraints maxHeight="240.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES"/>
-      <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="116.0" vgrow="SOMETIMES"/>
-   </rowConstraints>
-   <Label stylesheets="@../css/style.css" text="ЗДЕСЬ РЕЗУЛЬТАТ" textFill="WHITE" GridPane.halignment="CENTER"
-          GridPane.rowIndex="1"/>
-   <Button mnemonicParsing="false" fx:id="again" styleClass="label-start" text="Играть еще раз" GridPane.halignment="CENTER"
-           GridPane.rowIndex="2"/>
+          fx:controller="tictactoe.client.controller.EndController">
+    <columnConstraints>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="148.0" minHeight="6.0" prefHeight="84.0"/>
+        <RowConstraints maxHeight="240.0" minHeight="10.0" prefHeight="118.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="240.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="116.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <Label stylesheets="@../css/style.css" text="ЗДЕСЬ РЕЗУЛЬТАТ" textFill="WHITE" GridPane.halignment="CENTER"
+           GridPane.rowIndex="1"/>
+    <Button mnemonicParsing="false" fx:id="again" styleClass="label-start" text="Играть еще раз"
+            GridPane.halignment="CENTER"
+            GridPane.rowIndex="2"/>
 </GridPane>

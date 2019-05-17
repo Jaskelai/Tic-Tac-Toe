@@ -5,14 +5,17 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tictactoe.controller.WaitController">
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints maxHeight="148.0" minHeight="6.0" prefHeight="127.0" />
-      <RowConstraints maxHeight="240.0" minHeight="10.0" prefHeight="113.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES" />
-   </rowConstraints>
-   <Label stylesheets="@../css/style.css" text="ЖДИ " textFill="WHITE" GridPane.halignment="CENTER" />
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+          prefHeight="400.0" prefWidth="400.0" styleClass="background" stylesheets="@../css/style.css"
+          xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="tictactoe.client.controller.WaitController">
+    <columnConstraints>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="148.0" minHeight="6.0" prefHeight="127.0"/>
+        <RowConstraints maxHeight="240.0" minHeight="10.0" prefHeight="113.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <Label fx:id="labelZhdi" stylesheets="@../css/style.css" text="ЖДИ " textFill="WHITE" GridPane.halignment="CENTER"/>
 </GridPane>
